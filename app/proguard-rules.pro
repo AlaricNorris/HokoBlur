@@ -18,3 +18,4 @@
 
 -keep class android.support.v8.renderscript.** { *; }
 -keep class com.hoko.blur.opengl.functor.** { *; }
+-keep class com.hoko.blur.processor.RenderScriptBlurProcessor { *; }

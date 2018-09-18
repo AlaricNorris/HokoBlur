@@ -261,7 +261,11 @@ public abstract class BlurProcessor implements IBlurProcessor {
          * @return
          */
         public BlurProcessor processor() {
-            return BlurProcessorFactory.get(mScheme, this);
+            BlurProcessor processor = BlurProcessorFactory.get(mScheme, this);
+            if (processor == null) {
+                throw new IllegalStateException("创建Blur Processor失败");
+            }
+            return processor;
         }
 
         private void reset() {

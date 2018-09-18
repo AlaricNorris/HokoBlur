@@ -3,7 +3,6 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
-
     defaultConfig {
         applicationId "com.example.hokoblurdemo"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -20,7 +19,6 @@ android {
             minifyEnabled true
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-
         debug {
             jniDebuggable = true
         }
@@ -28,7 +26,6 @@ android {
     lintOptions {
         abortOnError false
     }
-
     sourceSets {
         main {
             jni.srcDir "src/main/jni"
@@ -38,8 +35,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
     testImplementation 'junit:junit:4.12'
     implementation 'com.android.support:appcompat-v7:27.1.1'
     implementation project(':hoko-blur')
+    implementation project(':hoko-blur-rs')
 }
